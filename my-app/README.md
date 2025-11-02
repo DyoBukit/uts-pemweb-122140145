@@ -57,8 +57,8 @@ https://uts-pemweb-122140145.vercel.app
 
 ## Screenshot Aplikasi 
 Berikut tampilan hasil aplikasi yang sudah saya buat: 
-'my-app/screenshoots/ss1.png'
-'my-app/screenshoots/ss2.png'
+![Tampilan 1](./screenshoots/ss1.png)
+![Tampilan 2](./screenshoots/ss2.png)
 
 ---
 
