@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
-export default function SearchForm({ onSearch, platforms, setPlatforms, sortBy, setSortBy }) {
+export default function SearchForm({
+  onSearch,
+  platforms,
+  setPlatforms,
+  sortBy,
+  setSortBy,
+}) {
   const [searchText, setSearchText] = useState("");
 
   const handleSubmit = (e) => {
@@ -15,27 +21,28 @@ export default function SearchForm({ onSearch, platforms, setPlatforms, sortBy, 
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center gap-4 bg-gray-800/70 p-6 rounded-2xl shadow-lg w-full max-w-6xl"
+      className="flex flex-col items-center gap-5 bg-gray-800/80 p-6 rounded-2xl shadow-lg w-full"
     >
-
-      <div className="flex w-full gap-2">
+      {/* Input dan tombol */}
+      <div className="flex w-full gap-3">
         <input
           type="text"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           placeholder="Cari game (contoh: GTA, Minecraft...)"
-          className="flex-grow px-4 py-2 rounded-lg bg-gray-800 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="flex-grow px-4 py-3 rounded-lg bg-gray-900 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
         <button
           type="submit"
-          className="px-5 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition"
+          className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition"
         >
           Cari
         </button>
       </div>
 
-      <div className="flex gap-4 text-gray-200">
-        <label className="flex items-center gap-1">
+      {/* Filter platform */}
+      <div className="flex flex-wrap justify-center gap-6 text-gray-200">
+        <label className="flex items-center gap-2">
           <input
             type="checkbox"
             checked={platforms.pc}
@@ -44,7 +51,7 @@ export default function SearchForm({ onSearch, platforms, setPlatforms, sortBy, 
           />
           PC
         </label>
-        <label className="flex items-center gap-1">
+        <label className="flex items-center gap-2">
           <input
             type="checkbox"
             checked={platforms.playstation}
@@ -53,7 +60,7 @@ export default function SearchForm({ onSearch, platforms, setPlatforms, sortBy, 
           />
           PlayStation
         </label>
-        <label className="flex items-center gap-1">
+        <label className="flex items-center gap-2">
           <input
             type="checkbox"
             checked={platforms.xbox}
@@ -65,12 +72,12 @@ export default function SearchForm({ onSearch, platforms, setPlatforms, sortBy, 
       </div>
 
       {/* Dropdown urutan */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
         <label className="text-gray-300 font-medium">Urutkan:</label>
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="bg-gray-800 text-gray-100 px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="bg-gray-900 text-gray-100 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="rating">Rating Tertinggi</option>
           <option value="released">Terbaru</option>

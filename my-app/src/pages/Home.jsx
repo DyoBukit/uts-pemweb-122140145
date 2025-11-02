@@ -8,7 +8,11 @@ import api from "../utils/api";
 
 export default function Home() {
   const [query, setQuery] = useState("");
-  const [platforms, setPlatforms] = useState({ pc: false, playstation: false, xbox: false });
+  const [platforms, setPlatforms] = useState({
+    pc: false,
+    playstation: false,
+    xbox: false,
+  });
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -19,7 +23,7 @@ export default function Home() {
   const platformIds = { pc: 4, playstation: 18, xbox: 1 };
 
   const handleSearch = (text) => {
-    if (!text || !text.trim()) {
+    if (!text.trim()) {
       setError("Masukkan nama game untuk mencari.");
       return;
     }
@@ -29,16 +33,30 @@ export default function Home() {
 
   useEffect(() => {
     if (!query) return;
+
     const fetchGames = async () => {
       try {
         setLoading(true);
-        const selected = Object.keys(platforms)
-          .filter((k) => platforms[k])
-          .map((k) => platformIds[k])
-          .join(",");
+
+        // 🔹 Jika semua checkbox tidak dipilih, otomatis pilih semua platform
+        const selectedPlatforms = Object.keys(platforms).filter(
+          (k) => platforms[k]
+        );
+        const activePlatforms =
+          selectedPlatforms.length > 0
+            ? selectedPlatforms.map((k) => platformIds[k]).join(",")
+            : Object.values(platformIds).join(",");
+
         const ordering = sortBy === "rating" ? "-rating" : "-released";
+
         const res = await api.get("/games", {
-          params: { search: query, page, page_size: 24, platforms: selected, ordering },
+          params: {
+            search: query,
+            page,
+            page_size: 24,
+            platforms: activePlatforms,
+            ordering,
+          },
         });
         setGames(res.data.results || []);
       } catch (err) {
@@ -48,6 +66,7 @@ export default function Home() {
         setLoading(false);
       }
     };
+
     fetchGames();
   }, [query, platforms, sortBy, page]);
 
@@ -55,10 +74,11 @@ export default function Home() {
   const closeDetail = () => setSelectedGame(null);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+    <div className="min-h-screen flex flex-col items-center bg-[#0b1120] text-white px-4 py-10">
+      <Header />
 
-      <div className="w-full max-w-3xl text-center px-6 py-10">
-        <Header />
+      {/* Kontainer pencarian */}
+      <div className="w-full max-w-6xl mt-8">
         <SearchForm
           onSearch={handleSearch}
           platforms={platforms}
@@ -66,20 +86,29 @@ export default function Home() {
           sortBy={sortBy}
           setSortBy={setSortBy}
         />
-        {error && <p className="text-red-400 mt-4">{error}</p>}
-        {loading && <p className="text-gray-400 mt-4">Memuat data...</p>}
-
-        <div className="mt-8">
-          <GameGrid games={games} onSelect={openDetail} />
-        </div>
-
-        <footer className="mt-10 text-gray-500 text-sm">
-          UTS Pengembangan Aplikasi Web — Game Database (RAWG API)
-        </footer>
       </div>
 
+      {/* Pesan error/loading */}
+      {error && <p className="text-red-400 mt-4">{error}</p>}
+      {loading && <p className="text-gray-400 mt-4">Memuat data...</p>}
+
+      {/* Grid game */}
+      <div className="w-full max-w-6xl mt-8">
+        <GameGrid games={games} onSelect={openDetail} />
+      </div>
+
+      {/* Footer */}
+      <footer className="mt-12 text-gray-400 text-sm text-center">
+        UTS Pengembangan Aplikasi Web — Game Database (RAWG API)
+      </footer>
+
+      {/* Detail Modal */}
       {selectedGame && (
-        <DetailModal gameId={selectedGame.id} onClose={closeDetail} initial={selectedGame} />
+        <DetailModal
+          gameId={selectedGame.id}
+          onClose={closeDetail}
+          initial={selectedGame}
+        />
       )}
     </div>
   );
