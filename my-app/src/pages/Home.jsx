@@ -1,4 +1,3 @@
-// src/pages/Home.jsx
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import SearchForm from "../components/SearchForm";
@@ -38,7 +37,6 @@ export default function Home() {
       try {
         setLoading(true);
 
-        // 🔹 Jika semua checkbox tidak dipilih, otomatis pilih semua platform
         const selectedPlatforms = Object.keys(platforms).filter(
           (k) => platforms[k]
         );
@@ -74,11 +72,9 @@ export default function Home() {
   const closeDetail = () => setSelectedGame(null);
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-[#0b1120] text-white px-4 py-10">
-      <Header />
-
-      {/* Kontainer pencarian */}
+    <div className="min-h-screen flex flex-col items-center ">
       <div className="w-full max-w-6xl mt-8">
+        <Header />
         <SearchForm
           onSearch={handleSearch}
           platforms={platforms}
@@ -88,21 +84,42 @@ export default function Home() {
         />
       </div>
 
-      {/* Pesan error/loading */}
       {error && <p className="text-red-400 mt-4">{error}</p>}
       {loading && <p className="text-gray-400 mt-4">Memuat data...</p>}
 
-      {/* Grid game */}
-      <div className="w-full max-w-6xl mt-8">
+      <div className="w-full mt-8">
         <GameGrid games={games} onSelect={openDetail} />
+        {games.length > 0 && (
+          <div className="flex items-center justify-center gap-6 mt-10">
+            <button
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
+              disabled={page === 1}
+              className={`px-4 py-2 rounded-lg font-medium transition ${
+                page === 1
+                  ? "bg-gray-700/50 text-gray-500 cursor-not-allowed"
+                  : "bg-indigo-600 hover:bg-indigo-700 text-white shadow-md"
+              }`}
+            >
+              Prev
+            </button>
+
+            <span className="text-indigo-300 font-semibold">Page {page}</span>
+
+            <button
+              onClick={() => setPage((p) => p + 1)}
+              className="px-4 py-2 rounded-lg font-medium bg-indigo-600 hover:bg-indigo-700 text-white shadow-md transition"
+            >
+              Next
+            </button>
+          </div>
+        )}
+
       </div>
 
-      {/* Footer */}
-      <footer className="mt-12 text-gray-400 text-sm text-center">
+      <footer className="mt-10 mb-7 text-indigo-300 text-sm text-center">
         UTS Pengembangan Aplikasi Web — Game Database (RAWG API)
       </footer>
 
-      {/* Detail Modal */}
       {selectedGame && (
         <DetailModal
           gameId={selectedGame.id}

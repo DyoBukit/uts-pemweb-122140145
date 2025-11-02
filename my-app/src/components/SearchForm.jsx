@@ -21,9 +21,8 @@ export default function SearchForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center gap-5 bg-gray-800/80 p-6 rounded-2xl shadow-lg w-full"
+      className="flex flex-col items-center gap-5 bg-gray-800/80 p-6 rounded-2xl shadow-lg w-full max-w-7xl mx-auto"
     >
-      {/* Input dan tombol */}
       <div className="flex w-full gap-3">
         <input
           type="text"
@@ -40,7 +39,6 @@ export default function SearchForm({
         </button>
       </div>
 
-      {/* Filter platform */}
       <div className="flex flex-wrap justify-center gap-6 text-gray-200">
         <label className="flex items-center gap-2">
           <input
@@ -71,7 +69,6 @@ export default function SearchForm({
         </label>
       </div>
 
-      {/* Dropdown urutan */}
       <div className="flex items-center gap-3">
         <label className="text-gray-300 font-medium">Urutkan:</label>
         <select

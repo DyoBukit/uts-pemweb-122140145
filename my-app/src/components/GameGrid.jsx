@@ -1,7 +1,7 @@
 export default function GameGrid({ games }) {
   if (!games.length)
     return (
-      <p className="text-center text-gray-400 mt-6">
+      <p className="text-center text-slate-200 mt-6">
         Pilih jenis platform yang diinginkan dan lakukan pencarian game.
       </p>
     );
