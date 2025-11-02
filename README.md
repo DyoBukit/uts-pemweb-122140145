@@ -63,7 +63,7 @@ Berikut tampilan hasil aplikasi yang sudah saya buat:
 ---
 
 ## Pembuat 
-Nama: Dyo Dwi Carol Bukit
-NIM: 122140145
-Mata Kuliah: Pengembangan Aplikasi Web
-Dosen Pengampu: M. Habib Al Gifari, S.Kom., M.T.I
+- Nama: Dyo Dwi Carol Bukit
+- NIM: 122140145
+- Mata Kuliah: Pengembangan Aplikasi Web
+- Dosen Pengampu: M. Habib Al Gifari, S.Kom., M.T.I
