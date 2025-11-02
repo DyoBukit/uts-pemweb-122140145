@@ -1,88 +1,62 @@
-🎮 UTS Pengembangan Aplikasi Web
-Nama: Dio Carol
-NIM: 122140145
-🧩 Deskripsi Proyek
+#  UTS Pengembangan Aplikasi Web  
+**Nama:** Dyo Dwi Carol Bukit  
+**NIM:** 122140145  
 
-Proyek ini merupakan bagian dari UTS mata kuliah Pengembangan Aplikasi Web.
-Aplikasi ini bernama Game Explorer, yaitu website pencarian game yang menampilkan informasi detail tentang berbagai game dari seluruh dunia dengan data yang diambil dari RAWG Video Games Database API
-.
+---
 
-Fitur utama:
+##  Deskripsi Proyek
 
-🔍 Pencarian game berdasarkan nama.
+Proyek ini merupakan bagian dari **UTS mata kuliah Pengembangan Aplikasi Web**.  
+Aplikasi ini bernama **Game Explorer**, yaitu website pencarian game yang menampilkan informasi detail tentang berbagai game dari seluruh dunia dengan data yang diambil dari **[RAWG Video Games Database API](https://rawg.io/apidocs)**.  
 
-🎮 Filter platform (PC, PlayStation, Xbox).
+###  Fitur Utama
+-  Pencarian game berdasarkan nama.  
+-  Filter platform (PC, PlayStation, Xbox).  
+-  Urutkan hasil berdasarkan *rating* tertinggi atau *rilis terbaru*.  
+-  Tampilan grid interaktif untuk hasil pencarian game.  
+-  Detail game dengan gambar dan deskripsi.  
+-  Desain modern dengan Tailwind CSS dan nuansa gelap (*dark theme*).  
 
-⭐ Urutkan hasil berdasarkan rating tertinggi atau rilis terbaru.
+---
 
-🖼️ Tampilan grid interaktif untuk hasil pencarian game.
-
-📖 Detail game dengan gambar dan deskripsi.
-
-🌗 Desain modern dengan Tailwind CSS dan nuansa gelap (dark theme).
-
-⚙️ Cara Instalasi dan Menjalankan
+##  Cara Instalasi dan Menjalankan
 
 Ikuti langkah-langkah berikut untuk menjalankan proyek di komputer lokal kamu:
 
-1️⃣ Clone repository
+### 1️ Clone repository
+```bash
 git clone https://github.com/DyoBukit/uts-pemweb-122140145.git
 
-2️⃣ Masuk ke folder proyek
+### 2 Masuk ke folder proyek
 cd uts-pemweb-122140145/my-app
 
-3️⃣ Instal dependensi
+### 3 Intall dependensi
 npm install
 
-4️⃣ Buat file .env dan masukkan API key RAWG kamu
+### 4 Buat file .env dan masukkan API key RAWG kamu
+VITE_RAWG_API_KEY=978387347c674daf9e65418d4146cd06
 
-Buat file baru bernama .env di folder my-app, lalu isi dengan:
-
-VITE_RAWG_API_KEY=your_rawg_api_key_here
-
-
-Kamu bisa mendapatkan API key dari: https://rawg.io/apidocs
-
-5️⃣ Jalankan server pengembangan
-npm run dev
+### 5 Jalankan server pengembangan
+npm run dev dan kemudian buka browser yang disediakan
 
 
-Setelah itu buka browser dan akses:
+## Link Deployment
+https://uts-pemweb-122140145.vercel.app
 
-http://localhost:5173
+## Teknologi yang Digunakan
+1. ReactReact JS (Vite)	-> Framework utama
+2. Tailwind CSS	Styling -> modern dan responsif
+3. Axios -> Mengambil data dari API
+4. RAWG API ->	Sumber data game
+5. Vercel -> Deployment aplikasi
 
-🌐 Link Deployment
+## Screenshot Aplikasi 
+Berikut tampilan hasil aplikasi yang sudah saya buat: 
+my-app/screenshoots/ss1.png
+my-app/screenshoots/ss2.png
 
-Aplikasi ini juga sudah di-deploy menggunakan Vercel:
-👉 https://uts-pemweb-122140145.vercel.app
- (ganti dengan link deploy kamu setelah berhasil di-host)
-
-🧱 Teknologi yang Digunakan
-
-⚛️ React JS (Vite) — Framework utama
-
-🎨 Tailwind CSS — Styling modern dan responsif
-
-🔗 Axios — Pengambilan data dari API
-
-💾 RAWG API — Sumber data game
-
-☁️ Vercel — Deployment aplikasi
-
-🖼️ Screenshot Aplikasi
-
-Berikut contoh tampilan aplikasi Game Explorer:
-
-Halaman Awal	Hasil Pencarian	Detail Game
-
-	
-	
-
-📸 Simpan screenshot hasil project kamu di folder my-app/screenshots/ agar gambar muncul di README.
-
-✨ Pembuat
-
-Nama: Dio Carol
+## Pembuat 
+Nama: Dyo Dwi Carol Bukit
 NIM: 122140145
 Mata Kuliah: Pengembangan Aplikasi Web
 Dosen Pengampu: M. Habib Al Gifari, S.Kom., M.T.I
