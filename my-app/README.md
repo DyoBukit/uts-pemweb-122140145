@@ -48,7 +48,7 @@ https://uts-pemweb-122140145.vercel.app
 
 ## Teknologi yang Digunakan
 1. ReactReact JS (Vite)	-> Framework utama
-2. Tailwind CSS	Styling -> modern dan responsif
+2. Tailwind CSS	-> Styling modern dan responsif
 3. Axios -> Mengambil data dari API
 4. RAWG API ->	Sumber data game
 5. Vercel -> Deployment aplikasi
